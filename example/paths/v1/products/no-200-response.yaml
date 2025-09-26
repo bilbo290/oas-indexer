@@ -1,0 +1,21 @@
+get:
+  operationId: getProductsWithoutProper200
+  summary: Get products without 200 response
+  description: This GET operation is missing a 200 response
+  tags:
+    - Products
+  responses:
+    '201':
+      description: This should be 200 for a GET operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../components/schemas/product.yaml
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml

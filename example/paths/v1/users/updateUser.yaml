@@ -1,0 +1,40 @@
+put:
+  operationId: updateUser
+  summary: Update user information
+  description: Update an existing user's information
+  tags:
+    - Users
+  parameters:
+    - $ref: ../../../components/parameters/user-id.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "John Updated"
+            role:
+              type: string
+              enum: [admin, user, moderator]
+  responses:
+    '200':
+      description: User updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/user.yaml
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml
+    '404':
+      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml

@@ -1,0 +1,31 @@
+get:
+  summary: Get user notifications
+  description: Retrieve notifications for a specific user
+  tags:
+    - Notifications
+  parameters:
+    - name: user_id
+      in: path
+      required: true
+      description: User identifier
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Notifications retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                message:
+                  type: string
+                read:
+                  type: boolean
+                createdAt:
+                  type: string
+                  format: date-time

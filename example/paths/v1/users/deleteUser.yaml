@@ -1,0 +1,23 @@
+delete:
+  operationId: deleteUser
+  summary: Delete a user
+  description: Delete a user account permanently
+  tags:
+    - Users
+  parameters:
+    - $ref: ../../../../components/parameters/user-id.yaml
+  responses:
+    '204':
+      description: User deleted successfully
+    '404':
+      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/error.yaml
+    '409':
+      description: Cannot delete user with active orders
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/error.yaml

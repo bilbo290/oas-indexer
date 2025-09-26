@@ -1,0 +1,77 @@
+get:
+  operationId: getUserById
+  summary: Get user by ID
+  description: Retrieve a specific user by their unique identifier
+  tags:
+    - Users
+  parameters:
+    - $ref: ../../../components/parameters/user-id.yaml
+  responses:
+    '200':
+      description: User retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/user.yaml
+    '404':
+      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml
+
+put:
+  operationId: updateUser
+  summary: Update user information
+  description: Update an existing user's information
+  tags:
+    - Users
+  parameters:
+    - $ref: ../../../components/parameters/user-id.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "John Updated"
+  responses:
+    '200':
+      description: User updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/user.yaml
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml
+    '404':
+      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml
+
+delete:
+  operationId: deleteUser
+  summary: Delete a user
+  description: Delete a user account permanently
+  tags:
+    - Users
+  parameters:
+    - $ref: ../../../components/parameters/user-id.yaml
+  responses:
+    '204':
+      description: User deleted successfully
+    '404':
+      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml

@@ -1,0 +1,19 @@
+get:
+  operationId: getCurrentUser
+  summary: Get current user profile
+  description: Get the currently authenticated user's profile
+  tags:
+    - Users
+  responses:
+    '200':
+      description: Current user profile
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/user.yaml
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml

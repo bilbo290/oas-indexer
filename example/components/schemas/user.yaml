@@ -1,0 +1,29 @@
+type: object
+required:
+  - id
+  - email
+  - name
+properties:
+  id:
+    type: string
+    description: Unique user identifier
+    example: "user_123abc"
+  email:
+    type: string
+    format: email
+    description: User's email address
+    example: "john.doe@example.com"
+  name:
+    type: string
+    description: User's full name
+    example: "John Doe"
+  role:
+    type: string
+    enum: [admin, user, moderator]
+    description: User role
+    example: "user"
+  createdAt:
+    type: string
+    format: date-time
+    description: User creation timestamp
+    example: "2024-01-15T10:30:00Z"

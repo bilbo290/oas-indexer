@@ -1,0 +1,8 @@
+name: orderId
+in: path
+required: true
+description: Unique identifier for the order
+schema:
+  type: string
+  pattern: '^order_[a-zA-Z0-9]+$'
+example: "order_456def"

@@ -1,0 +1,26 @@
+get:
+  operationId: getProducts
+  summary: Get all products
+  description: Retrieve a list of products with optional category filtering
+  tags:
+    - Products
+  parameters:
+    - name: category
+      in: query
+      description: Filter products by category
+      schema:
+        type: string
+    - name: in-stock
+      in: query
+      description: Filter products by stock availability
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: Products retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../components/schemas/product.yaml

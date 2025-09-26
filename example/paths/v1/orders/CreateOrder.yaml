@@ -1,0 +1,47 @@
+post:
+  operationId: createOrder
+  summary: Create a new order
+  description: Create a new order for a user
+  tags:
+    - Orders
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - userId
+            - items
+          properties:
+            userId:
+              type: string
+              example: "user_123abc"
+            items:
+              type: array
+              items:
+                type: object
+                required:
+                  - productId
+                  - quantity
+                properties:
+                  productId:
+                    type: string
+                    example: "prod_789ghi"
+                  quantity:
+                    type: integer
+                    minimum: 1
+                    example: 2
+  responses:
+    '201':
+      description: Order created successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/order.yaml
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/error.yaml

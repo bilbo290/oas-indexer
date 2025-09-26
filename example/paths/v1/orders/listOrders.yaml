@@ -1,0 +1,27 @@
+get:
+  operationId: listOrders
+  summary: List all orders
+  description: Retrieve a list of orders with optional filtering
+  tags:
+    - Orders
+  parameters:
+    - name: status
+      in: query
+      description: Filter orders by status
+      schema:
+        type: string
+        enum: [pending, processing, shipped, delivered, cancelled]
+    - name: userId
+      in: query
+      description: Filter orders by user ID
+      schema:
+        type: string
+  responses:
+    '200':
+      description: List of orders retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../components/schemas/order.yaml

@@ -1,0 +1,22 @@
+get:
+  # Missing operationId - should trigger validation error
+  summary: Search products
+  description: Search for products by name or description
+  tags:
+    - Products
+  parameters:
+    - name: query
+      in: query
+      required: true
+      description: Search query
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Search results
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../components/schemas/product.yaml

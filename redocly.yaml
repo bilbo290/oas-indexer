@@ -1,0 +1,13 @@
+apis:
+  main:
+    root: example/root.yaml
+
+extends:
+  - recommended
+
+rules:
+  no-unused-components: warn
+  operation-operationId: error
+  operation-2xx-response: error
+  path-parameters-defined: error
+

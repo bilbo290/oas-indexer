@@ -1,0 +1,27 @@
+post:
+  operationId: processOrder
+  summary: Process an order
+  description: Start processing a pending order
+  tags:
+    - Orders
+  parameters:
+    - $ref: ../../../../components/parameters/order-id.yaml
+  responses:
+    '200':
+      description: Order processing started
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/order.yaml
+    '400':
+      description: Order cannot be processed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/error.yaml
+    '404':
+      description: Order not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/error.yaml

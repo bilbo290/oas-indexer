@@ -1,0 +1,18 @@
+openapi: "3.0.0"
+info:
+  title: API
+  version: "1.0.0"
+paths:
+  /v1/users:
+    $ref: ./paths/v1/users.yaml
+  /v1/users/details:
+    $ref: ./paths/v1/users/details.yaml
+components:
+  schemas:
+    Error:
+      $ref: ./components/schemas/error.yaml
+    User:
+      $ref: ./components/schemas/user.yaml
+  parameters:
+    UserId:
+      $ref: ./components/parameters/user-id.yaml

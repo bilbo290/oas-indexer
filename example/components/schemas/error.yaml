@@ -1,0 +1,24 @@
+type: object
+required:
+  - code
+  - message
+properties:
+  code:
+    type: string
+    description: Error code
+    example: "VALIDATION_ERROR"
+  message:
+    type: string
+    description: Human-readable error message
+    example: "The request contains invalid data"
+  details:
+    type: array
+    items:
+      type: object
+      properties:
+        field:
+          type: string
+          example: "email"
+        error:
+          type: string
+          example: "Invalid email format"

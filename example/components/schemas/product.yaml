@@ -1,0 +1,31 @@
+type: object
+required:
+  - id
+  - name
+  - price
+properties:
+  id:
+    type: string
+    description: Unique product identifier
+    example: "prod_789ghi"
+  name:
+    type: string
+    description: Product name
+    example: "Wireless Headphones"
+  description:
+    type: string
+    description: Product description
+    example: "High-quality wireless headphones with noise cancellation"
+  price:
+    type: number
+    format: float
+    description: Product price
+    example: 149.99
+  category:
+    type: string
+    description: Product category
+    example: "Electronics"
+  inStock:
+    type: boolean
+    description: Whether the product is in stock
+    example: true

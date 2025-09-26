@@ -1,0 +1,15 @@
+get:
+  operationId: getOrdersWithoutSummary
+  # Missing summary - should trigger validation error for Google preset
+  description: This operation is missing a summary
+  tags:
+    - Orders
+  responses:
+    '200':
+      description: Orders list
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../components/schemas/order.yaml
